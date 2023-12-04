@@ -9,11 +9,16 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  - name: test
+    value: 'Wyd0ZXN0MScsJ3Rlc3QyJ10K'
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
+    modified_dirs_json=$(echo $(test) | base64 --decode)
+    modified_dirs=$(echo $modified_dirs_json | jq -r '.[]')
+
+    for dir in $modified_dirs; do
+      echo $dir
+    done
   displayName: 'Run a multi-line script'
