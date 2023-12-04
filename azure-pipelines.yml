@@ -11,7 +11,7 @@ pool:
 
 variables:
   - name: test
-    value: 'Wyd0ZXN0MScsJ3Rlc3QyJ10K'
+    value: 'WyJ0ZXN0MSIsICJ0ZXN0MiJd'
 steps:
 
 - script: |
