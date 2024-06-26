@@ -1,0 +1,15 @@
+trigger: none
+schedules:
+  - cron: "*/1 * * * *"
+    displayName: Every minute build
+    branches:
+      include:
+      - main  # or your default branch
+    always: true
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - script: echo "Hello World"
+    displayName: 'Run a one-line script'
